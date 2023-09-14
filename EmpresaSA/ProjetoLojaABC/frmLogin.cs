@@ -1,4 +1,8 @@
-﻿using System;
+﻿// biblioteca do csharp
+/*
+comentario de bloco
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,11 +21,7 @@ namespace ProjetoLojaABC
             InitializeComponent();
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+      
         private void btnSair_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -29,10 +29,16 @@ namespace ProjetoLojaABC
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            frmMenuPrincipal abrir = new frmMenuPrincipal();
-            abrir.Show();
-            this.Hide();
+            //frmMenuPrincipal abrir = new frmMenuPrincipal();
+            // abrir.Show();
+            // this.Hide();
 
+            // declaração  de variáveis 
+            string Usuario, Senha;
+            
+            // iniciando as variáveis
+            Usuario = txtUsuario.Text;
+            Senha = txtSenha.Text;
         }
     }
 }

@@ -88,7 +88,6 @@ namespace ProjetoLojaABC
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(245, 26);
             this.txtUsuario.TabIndex = 0;
-            this.txtUsuario.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // btnEntrar
             // 
