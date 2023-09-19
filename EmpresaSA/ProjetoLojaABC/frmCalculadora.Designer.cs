@@ -31,12 +31,12 @@ namespace ProjetoLojaABC
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCalculadora));
             this.gpbOperador = new System.Windows.Forms.GroupBox();
-            this.lblVariavel1 = new System.Windows.Forms.Label();
-            this.lblVariável2 = new System.Windows.Forms.Label();
-            this.rbtAdicao = new System.Windows.Forms.RadioButton();
             this.rbtSubtracao = new System.Windows.Forms.RadioButton();
             this.rbtMultiplicacao = new System.Windows.Forms.RadioButton();
             this.rbtDivisao = new System.Windows.Forms.RadioButton();
+            this.rbtAdicao = new System.Windows.Forms.RadioButton();
+            this.lblVariavel1 = new System.Windows.Forms.Label();
+            this.lblVariável2 = new System.Windows.Forms.Label();
             this.btnCalcular = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
@@ -60,37 +60,6 @@ namespace ProjetoLojaABC
             this.gpbOperador.TabIndex = 3;
             this.gpbOperador.TabStop = false;
             this.gpbOperador.Text = "Operador";
-            // 
-            // lblVariavel1
-            // 
-            this.lblVariavel1.AutoSize = true;
-            this.lblVariavel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVariavel1.Location = new System.Drawing.Point(45, 57);
-            this.lblVariavel1.Name = "lblVariavel1";
-            this.lblVariavel1.Size = new System.Drawing.Size(71, 18);
-            this.lblVariavel1.TabIndex = 1;
-            this.lblVariavel1.Text = "Variável 1";
-            // 
-            // lblVariável2
-            // 
-            this.lblVariável2.AutoSize = true;
-            this.lblVariável2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVariável2.Location = new System.Drawing.Point(45, 104);
-            this.lblVariável2.Name = "lblVariável2";
-            this.lblVariável2.Size = new System.Drawing.Size(71, 18);
-            this.lblVariável2.TabIndex = 2;
-            this.lblVariável2.Text = "Variável 2";
-            // 
-            // rbtAdicao
-            // 
-            this.rbtAdicao.AutoSize = true;
-            this.rbtAdicao.Location = new System.Drawing.Point(6, 35);
-            this.rbtAdicao.Name = "rbtAdicao";
-            this.rbtAdicao.Size = new System.Drawing.Size(94, 22);
-            this.rbtAdicao.TabIndex = 3;
-            this.rbtAdicao.TabStop = true;
-            this.rbtAdicao.Text = "Adição (+)";
-            this.rbtAdicao.UseVisualStyleBackColor = true;
             // 
             // rbtSubtracao
             // 
@@ -126,6 +95,37 @@ namespace ProjetoLojaABC
             this.rbtDivisao.Text = "Divisão (/)";
             this.rbtDivisao.UseVisualStyleBackColor = true;
             // 
+            // rbtAdicao
+            // 
+            this.rbtAdicao.AutoSize = true;
+            this.rbtAdicao.Location = new System.Drawing.Point(6, 35);
+            this.rbtAdicao.Name = "rbtAdicao";
+            this.rbtAdicao.Size = new System.Drawing.Size(94, 22);
+            this.rbtAdicao.TabIndex = 3;
+            this.rbtAdicao.TabStop = true;
+            this.rbtAdicao.Text = "Adição (+)";
+            this.rbtAdicao.UseVisualStyleBackColor = true;
+            // 
+            // lblVariavel1
+            // 
+            this.lblVariavel1.AutoSize = true;
+            this.lblVariavel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVariavel1.Location = new System.Drawing.Point(45, 57);
+            this.lblVariavel1.Name = "lblVariavel1";
+            this.lblVariavel1.Size = new System.Drawing.Size(71, 18);
+            this.lblVariavel1.TabIndex = 1;
+            this.lblVariavel1.Text = "Variável 1";
+            // 
+            // lblVariável2
+            // 
+            this.lblVariável2.AutoSize = true;
+            this.lblVariável2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVariável2.Location = new System.Drawing.Point(45, 104);
+            this.lblVariável2.Name = "lblVariável2";
+            this.lblVariável2.Size = new System.Drawing.Size(71, 18);
+            this.lblVariável2.TabIndex = 2;
+            this.lblVariável2.Text = "Variável 2";
+            // 
             // btnCalcular
             // 
             this.btnCalcular.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -148,6 +148,7 @@ namespace ProjetoLojaABC
             this.btnLimpar.TabIndex = 8;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = false;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnSair
             // 
