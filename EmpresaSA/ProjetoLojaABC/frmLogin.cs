@@ -29,9 +29,7 @@ namespace ProjetoLojaABC
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            //frmMenuPrincipal abrir = new frmMenuPrincipal();
-            // abrir.Show();
-            // this.Hide();
+            
 
             // declaração  de variáveis 
             string Usuario, Senha;
@@ -39,6 +37,40 @@ namespace ProjetoLojaABC
             // iniciando as variáveis
             Usuario = txtUsuario.Text;
             Senha = txtSenha.Text;
+
+            if (Usuario.Equals("senac") && Senha.Equals("senac"))
+            {
+                frmMenuPrincipal abrir = new frmMenuPrincipal();
+                abrir.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("usuario ou senha invalidos!!!",
+                    "mensagem do sistema",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1);
+                txtUsuario.Clear();
+                txtSenha.Clear();
+                txtUsuario.Focus();
+            }
+        }
+
+        private void txtUsuario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                txtSenha.Focus();
+            }
+        }
+
+        private void txtSenha_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                btnEntrar.Focus();
+            }
         }
     }
 }

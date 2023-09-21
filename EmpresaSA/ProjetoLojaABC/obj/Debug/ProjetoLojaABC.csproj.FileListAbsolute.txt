@@ -11,3 +11,4 @@ C:\Users\alan.fsantana1\Documents\Visual Studio 2019\ProjetoTI110\EmpresaSA\Proj
 C:\Users\alan.fsantana1\Documents\Visual Studio 2019\ProjetoTI110\EmpresaSA\ProjetoLojaABC\obj\Debug\ProjetoLojaABC.frmLogin.resources
 C:\Users\alan.fsantana1\Documents\Visual Studio 2019\ProjetoTI110\EmpresaSA\ProjetoLojaABC\obj\Debug\ProjetoLojaABC.frmMenuPrincipal.resources
 C:\Users\alan.fsantana1\Documents\Visual Studio 2019\ProjetoTI110\EmpresaSA\ProjetoLojaABC\obj\Debug\ProjetoLojaABC.frmCalculadora.resources
+C:\Users\alan.fsantana1\Documents\Visual Studio 2019\ProjetoTI110\EmpresaSA\ProjetoLojaABC\obj\Debug\ProjetoLojaABC.frmFuncionarios.resources
