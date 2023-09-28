@@ -29,7 +29,6 @@ namespace ProjetoLojaABC
         {
             btnPesquisar.Enabled = false;
             btnLimpar.Enabled = false;
-
             txtDescricao.Enabled = false;
             rdbCodigo.Checked = false;
             rdbNome.Checked = false;
@@ -64,12 +63,32 @@ namespace ProjetoLojaABC
 
         private void rdbNome_CheckedChanged(object sender, EventArgs e)
         {
-            desabilitarCampos();
+            habilitarCampos();
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             limparCampos();
+        }
+
+        private void ltbPesquisar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(ltbPesquisar.SelectedItem == null)
+            {
+                MessageBox.Show("Favor selecionar um item", "Mensagem do sistema",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1);
+            }
+            else
+            {
+            string nome = ltbPesquisar.SelectedItem.ToString();
+            frmFuncionarios abrir = new frmFuncionarios(nome);
+            abrir.Show();
+            this.Hide();
+            }
+            
+                
+            
         }
     }
 }

@@ -100,12 +100,14 @@ namespace ProjetoLojaABC
             // 
             // ltbPesquisar
             // 
+            this.ltbPesquisar.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.ltbPesquisar.FormattingEnabled = true;
             this.ltbPesquisar.Location = new System.Drawing.Point(12, 190);
             this.ltbPesquisar.Name = "ltbPesquisar";
             this.ltbPesquisar.Size = new System.Drawing.Size(556, 147);
             this.ltbPesquisar.TabIndex = 4;
             this.ltbPesquisar.UseWaitCursor = true;
+            this.ltbPesquisar.SelectedIndexChanged += new System.EventHandler(this.ltbPesquisar_SelectedIndexChanged);
             // 
             // btnPesquisar
             // 
