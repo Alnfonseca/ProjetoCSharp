@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using MySql.Data.MySqlClient;
 
 namespace ProjetoLojaABC
 {
@@ -106,7 +107,7 @@ namespace ProjetoLojaABC
         }
         public void habilitarCampos()
         {
-            txtCodigo.Enabled = true;
+            txtCodigo.Enabled = false;
             txtNome.Enabled = true;
             txtEndereco.Enabled = true;
             txtBairro.Enabled = true;
@@ -148,6 +149,33 @@ namespace ProjetoLojaABC
         {
             habilitarCampos();
         }
+
+        //cadastrando os funcionarios no banco de dados 
+        public void cadastraFucnionarios()
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "insert into tbFuncionarios(nome,email,cpf,dNasc,endereco,cep,numero,bairro,estado,cidade)values(@nome,@email,@cpf,@dNasc,@endereco,@cep,@numero,@bairro,@estado,@cidade);";
+            comm.CommandType = CommandType.Text;
+            comm.Parameters.Clear();
+
+            comm.Parameters.Add("@nome", MySqlDbType.VarChar, 100).Value = txtNome.Text;
+            comm.Parameters.Add("@email", MySqlDbType.VarChar, 100).Value = txtEmail.Text;
+            comm.Parameters.Add("@cpf", MySqlDbType.VarChar, 14).Value = mskCPF.Text;
+            comm.Parameters.Add("@dNasc", MySqlDbType.Date).Value = dtpDNasc.Text;
+            comm.Parameters.Add("@endereco", MySqlDbType.VarChar, 100).Value = txtEndereco.Text;
+            comm.Parameters.Add("@cep", MySqlDbType.VarChar, 9).Value = txtEmail.Text;
+            comm.Parameters.Add("@numero", MySqlDbType.VarChar, 10).Value = txtNumero.Text;
+            comm.Parameters.Add("@bairro", MySqlDbType.VarChar, 100).Value = txtBairro.Text;
+            comm.Parameters.Add("@estado", MySqlDbType.VarChar, 2).Value = cbbEstado.Text;
+            comm.Parameters.Add("@cidade", MySqlDbType.VarChar, 100).Value = txtCidade.Text;
+
+            comm.Connection = Conexao.obterConexao();
+
+            comm.ExecuteNonQuery();
+
+            Conexao.fecharConexao();
+        }   
+
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
@@ -204,15 +232,33 @@ namespace ProjetoLojaABC
             }
         }
 
-        private void btnCarregaCEP_Click(object sender, EventArgs e)
+        private void mskCEP_KeyDown(object sender, KeyEventArgs e)
         {
-            WSCorreios.AtendeClienteClient ws = new WSCorreios.AtendeClienteClient();
-            WSCorreios.enderecoERP endereco = ws.consultaCEP(mskCEP.Text);
-            txtEndereco.Text = endereco.end;
-            txtBairro.Text = endereco.bairro;
-            txtCidade.Text = endereco.cidade;
-            cbbEstado.Text = endereco.uf;
+            if(e.KeyCode == Keys.Enter)
+            {
+                WSCorreios.AtendeClienteClient ws = new WSCorreios.AtendeClienteClient();
 
+                try { 
+                
+                WSCorreios.enderecoERP endereco = ws.consultaCEP(mskCEP.Text);
+                txtEndereco.Text = endereco.end;
+                txtBairro.Text = endereco.bairro;
+                txtCidade.Text = endereco.cidade;
+                cbbEstado.Text = endereco.uf;
+
+                txtNumero.Focus();
+                }
+                catch(Exception)
+                {
+                    MessageBox.Show("Favor inserir um CEP válido!", "Mensagem do sistema",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1);
+                    mskCEP.Focus();
+                    mskCEP.Clear();
+
+                }
+            }
+            
         }
     }
 }
