@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace ProjetoLojaABC
 {
@@ -20,10 +21,60 @@ namespace ProjetoLojaABC
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            ltbPesquisar.Items.Clear();
-            ltbPesquisar.Items.Add(txtDescricao.Text);
+
+            if (rdbCodigo.Checked)
+            {
+                pesquisaCodigo(Convert.ToInt32(txtDescricao.Text));
+            }
+            if (rdbNome.Checked)
+            {
+                pesquisaNome(txtDescricao.Text);
+            }
 
         }
+        //pesquisar por codigo
+        public void pesquisaCodigo(int codigo)
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "select nome from tbFuncionarios where codFunc = @codFunc;";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@codFunc",MySqlDbType.Int32).Value = codigo;
+            comm.Connection = Conexao.obterConexao();
+            // carrengando dados para objeto de tabela 
+            MySqlDataReader DR;
+
+            DR = comm.ExecuteReader();
+            DR.Read();
+            ltbPesquisar.Items.Clear();
+            ltbPesquisar.Items.Add(DR.GetString(0));
+
+            Conexao.fecharConexao();
+        }
+
+        //pesquisa por nome
+        public void pesquisaNome(string nome)
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "select nome tbFuncionarios where nome like	'%"+nome+"%';";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@nome",MySqlDbType.VarChar,100).Value = nome;
+
+            comm.Connection = Conexao.obterConexao();
+            Conexao.fecharConexao();
+            MySqlDataReader DR;
+            DR = comm.ExecuteReader();
+
+            ltbPesquisar.Items.Clear();
+            while (DR.Read())
+            {
+                ltbPesquisar.Items.Add(DR.GetString(0));
+            }
+        }
+
         // metodo de desabilitar campos
         public void desabilitarCampos()
         {
