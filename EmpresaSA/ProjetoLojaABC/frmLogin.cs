@@ -66,6 +66,7 @@ namespace ProjetoLojaABC
             }
         }
 
+
         private void txtUsuario_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.Enter)
