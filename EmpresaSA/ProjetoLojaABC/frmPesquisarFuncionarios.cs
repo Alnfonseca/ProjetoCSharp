@@ -13,7 +13,7 @@ namespace ProjetoLojaABC
 {
     public partial class frmPesquisarFuncionarios : Form
     {
-        
+
         public frmPesquisarFuncionarios()
         {
             InitializeComponent();
@@ -40,7 +40,7 @@ namespace ProjetoLojaABC
             comm.CommandType = CommandType.Text;
 
             comm.Parameters.Clear();
-            comm.Parameters.Add("@codFunc",MySqlDbType.Int32).Value = codigo;
+            comm.Parameters.Add("@codFunc", MySqlDbType.Int32).Value = codigo;
             comm.Connection = Conexao.obterConexao();
             // carrengando dados para objeto de tabela 
             MySqlDataReader DR;
@@ -57,14 +57,14 @@ namespace ProjetoLojaABC
         public void pesquisaNome(string nome)
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "select nome tbFuncionarios where nome like	'%"+nome+"%';";
+            comm.CommandText = "select nome from tbFuncionarios where nome LIKE'%a%';";
             comm.CommandType = CommandType.Text;
 
             comm.Parameters.Clear();
-            comm.Parameters.Add("@nome",MySqlDbType.VarChar,100).Value = nome;
+            comm.Parameters.Add("@nome", MySqlDbType.VarChar, 100).Value = nome;
 
             comm.Connection = Conexao.obterConexao();
-            Conexao.fecharConexao();
+
             MySqlDataReader DR;
             DR = comm.ExecuteReader();
 
@@ -73,6 +73,7 @@ namespace ProjetoLojaABC
             {
                 ltbPesquisar.Items.Add(DR.GetString(0));
             }
+            Conexao.fecharConexao();
         }
 
         // metodo de desabilitar campos
@@ -93,7 +94,7 @@ namespace ProjetoLojaABC
             btnLimpar.Enabled = true;
             txtDescricao.Enabled = true;
             txtDescricao.Focus();
-            
+
         }
         //limpar campos
         public void limparCampos()
@@ -124,7 +125,7 @@ namespace ProjetoLojaABC
 
         private void ltbPesquisar_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(ltbPesquisar.SelectedItem == null)
+            if (ltbPesquisar.SelectedItem == null)
             {
                 MessageBox.Show("Favor selecionar um item", "Mensagem do sistema",
                     MessageBoxButtons.OK, MessageBoxIcon.Error,
@@ -132,14 +133,14 @@ namespace ProjetoLojaABC
             }
             else
             {
-            string nome = ltbPesquisar.SelectedItem.ToString();
-            frmFuncionarios abrir = new frmFuncionarios(nome);
-            abrir.Show();
-            this.Hide();
+                string nome = ltbPesquisar.SelectedItem.ToString();
+                frmFuncionarios abrir = new frmFuncionarios(nome);
+                abrir.Show();
+                this.Hide();
             }
-            
-                
-            
+
+
+
         }
     }
 }
