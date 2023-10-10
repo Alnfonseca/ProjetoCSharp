@@ -46,5 +46,12 @@ namespace ProjetoLojaABC
             abrir.Show();
             this.Hide();
         }
+
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            frmCadastroUsuarios abrir = new frmCadastroUsuarios();
+            abrir.Show();
+            this.Hide();
+        }
     }
 }

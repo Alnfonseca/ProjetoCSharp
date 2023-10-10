@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-
+using MySql.Data.MySqlClient;
 namespace ProjetoLojaABC
 {
     public partial class frmLogin : Form
@@ -35,6 +35,27 @@ namespace ProjetoLojaABC
         {
             Application.Exit();
         }
+        // validação de uruario
+        public bool autenticarUsuario(string usuario, string senha)
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "select * from tbUsuarios where usuario = @usuario and senha = @senha;";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@usuario", MySqlDbType.VarChar, 30).Value = usuario;
+            comm.Parameters.Add("@senha", MySqlDbType.VarChar, 10).Value = senha;
+
+            comm.Connection = Conexao.obterConexao();
+            MySqlDataReader DR;
+            DR = comm.ExecuteReader();
+
+            bool validar = DR.HasRows;
+
+
+            Conexao.fecharConexao();
+            return validar;
+        }
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
@@ -47,7 +68,7 @@ namespace ProjetoLojaABC
             Usuario = txtUsuario.Text;
             Senha = txtSenha.Text;
 
-            if (Usuario.Equals("senac") && Senha.Equals("senac"))
+            if (autenticarUsuario(Usuario,Senha))
             {
                 frmMenuPrincipal abrir = new frmMenuPrincipal();
                 abrir.Show();

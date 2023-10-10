@@ -40,13 +40,17 @@ namespace ProjetoLojaABC
             this.btnNovo = new System.Windows.Forms.Button();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.lblSenha = new System.Windows.Forms.Label();
-            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.txtNome = new System.Windows.Forms.TextBox();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.gpbFuncionario = new System.Windows.Forms.GroupBox();
-            this.lblRepSenha = new System.Windows.Forms.Label();
             this.txtRepSenha = new System.Windows.Forms.TextBox();
+            this.lblRepSenha = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lstFuncSemUsu = new System.Windows.Forms.ListBox();
+            this.lblCodFunc = new System.Windows.Forms.Label();
+            this.txtCodFunc = new System.Windows.Forms.TextBox();
             this.pnlCrud.SuspendLayout();
             this.gpbFuncionario.SuspendLayout();
             this.SuspendLayout();
@@ -78,6 +82,7 @@ namespace ProjetoLojaABC
             this.btnVoltar.Text = "&Voltar";
             this.btnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnVoltar.UseVisualStyleBackColor = false;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // btnLimpar
             // 
@@ -143,6 +148,7 @@ namespace ProjetoLojaABC
             this.btnCadastrar.Text = "&Cadastrar";
             this.btnCadastrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCadastrar.UseVisualStyleBackColor = false;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // btnNovo
             // 
@@ -156,11 +162,12 @@ namespace ProjetoLojaABC
             this.btnNovo.Text = "&Novo";
             this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNovo.UseVisualStyleBackColor = false;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // txtSenha
             // 
             this.txtSenha.Font = new System.Drawing.Font("Wingdings", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.txtSenha.Location = new System.Drawing.Point(246, 223);
+            this.txtSenha.Location = new System.Drawing.Point(139, 223);
             this.txtSenha.MaxLength = 100;
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.PasswordChar = 'l';
@@ -170,23 +177,23 @@ namespace ProjetoLojaABC
             // lblSenha
             // 
             this.lblSenha.AutoSize = true;
-            this.lblSenha.Location = new System.Drawing.Point(184, 223);
+            this.lblSenha.Location = new System.Drawing.Point(77, 223);
             this.lblSenha.Name = "lblSenha";
             this.lblSenha.Size = new System.Drawing.Size(50, 18);
             this.lblSenha.TabIndex = 9;
             this.lblSenha.Text = "Senha";
             // 
-            // txtUsuario
+            // txtNome
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(246, 148);
-            this.txtUsuario.MaxLength = 100;
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(294, 24);
-            this.txtUsuario.TabIndex = 2;
+            this.txtNome.Location = new System.Drawing.Point(139, 148);
+            this.txtNome.MaxLength = 100;
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(294, 24);
+            this.txtNome.TabIndex = 2;
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(246, 86);
+            this.txtCodigo.Location = new System.Drawing.Point(139, 86);
             this.txtCodigo.MaxLength = 5;
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(100, 24);
@@ -195,7 +202,7 @@ namespace ProjetoLojaABC
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Location = new System.Drawing.Point(184, 86);
+            this.lblCodigo.Location = new System.Drawing.Point(77, 86);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(56, 18);
             this.lblCodigo.TabIndex = 0;
@@ -204,7 +211,7 @@ namespace ProjetoLojaABC
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(180, 154);
+            this.lblUsuario.Location = new System.Drawing.Point(73, 154);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(60, 18);
             this.lblUsuario.TabIndex = 2;
@@ -212,11 +219,15 @@ namespace ProjetoLojaABC
             // 
             // gpbFuncionario
             // 
+            this.gpbFuncionario.Controls.Add(this.txtCodFunc);
+            this.gpbFuncionario.Controls.Add(this.lblCodFunc);
+            this.gpbFuncionario.Controls.Add(this.lstFuncSemUsu);
+            this.gpbFuncionario.Controls.Add(this.label1);
             this.gpbFuncionario.Controls.Add(this.txtRepSenha);
             this.gpbFuncionario.Controls.Add(this.lblRepSenha);
             this.gpbFuncionario.Controls.Add(this.txtSenha);
             this.gpbFuncionario.Controls.Add(this.lblSenha);
-            this.gpbFuncionario.Controls.Add(this.txtUsuario);
+            this.gpbFuncionario.Controls.Add(this.txtNome);
             this.gpbFuncionario.Controls.Add(this.lblUsuario);
             this.gpbFuncionario.Controls.Add(this.txtCodigo);
             this.gpbFuncionario.Controls.Add(this.lblCodigo);
@@ -228,24 +239,60 @@ namespace ProjetoLojaABC
             this.gpbFuncionario.TabStop = false;
             this.gpbFuncionario.Text = "Dados";
             // 
-            // lblRepSenha
-            // 
-            this.lblRepSenha.AutoSize = true;
-            this.lblRepSenha.Location = new System.Drawing.Point(133, 301);
-            this.lblRepSenha.Name = "lblRepSenha";
-            this.lblRepSenha.Size = new System.Drawing.Size(101, 18);
-            this.lblRepSenha.TabIndex = 10;
-            this.lblRepSenha.Text = "Repetir Senha";
-            // 
             // txtRepSenha
             // 
             this.txtRepSenha.Font = new System.Drawing.Font("Wingdings", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.txtRepSenha.Location = new System.Drawing.Point(246, 301);
+            this.txtRepSenha.Location = new System.Drawing.Point(139, 301);
             this.txtRepSenha.MaxLength = 100;
             this.txtRepSenha.Name = "txtRepSenha";
             this.txtRepSenha.PasswordChar = 'l';
             this.txtRepSenha.Size = new System.Drawing.Size(294, 24);
             this.txtRepSenha.TabIndex = 4;
+            // 
+            // lblRepSenha
+            // 
+            this.lblRepSenha.AutoSize = true;
+            this.lblRepSenha.Location = new System.Drawing.Point(26, 301);
+            this.lblRepSenha.Name = "lblRepSenha";
+            this.lblRepSenha.Size = new System.Drawing.Size(101, 18);
+            this.lblRepSenha.TabIndex = 10;
+            this.lblRepSenha.Text = "Repetir Senha";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(517, 46);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(193, 18);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Funcionarios Sem Usuários";
+            // 
+            // lstFuncSemUsu
+            // 
+            this.lstFuncSemUsu.FormattingEnabled = true;
+            this.lstFuncSemUsu.ItemHeight = 18;
+            this.lstFuncSemUsu.Location = new System.Drawing.Point(510, 77);
+            this.lstFuncSemUsu.Name = "lstFuncSemUsu";
+            this.lstFuncSemUsu.Size = new System.Drawing.Size(216, 238);
+            this.lstFuncSemUsu.TabIndex = 12;
+            this.lstFuncSemUsu.SelectedIndexChanged += new System.EventHandler(this.lstFuncSemUsu_SelectedIndexChanged);
+            // 
+            // lblCodFunc
+            // 
+            this.lblCodFunc.AutoSize = true;
+            this.lblCodFunc.Location = new System.Drawing.Point(428, 357);
+            this.lblCodFunc.Name = "lblCodFunc";
+            this.lblCodFunc.Size = new System.Drawing.Size(138, 18);
+            this.lblCodFunc.TabIndex = 13;
+            this.lblCodFunc.Text = "Código Funcionário";
+            // 
+            // txtCodFunc
+            // 
+            this.txtCodFunc.Location = new System.Drawing.Point(572, 354);
+            this.txtCodFunc.MaxLength = 5;
+            this.txtCodFunc.Name = "txtCodFunc";
+            this.txtCodFunc.Size = new System.Drawing.Size(154, 24);
+            this.txtCodFunc.TabIndex = 14;
             // 
             // frmCadastroUsuarios
             // 
@@ -280,12 +327,16 @@ namespace ProjetoLojaABC
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.Label lblSenha;
-        private System.Windows.Forms.TextBox txtUsuario;
+        private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.GroupBox gpbFuncionario;
         private System.Windows.Forms.TextBox txtRepSenha;
         private System.Windows.Forms.Label lblRepSenha;
+        private System.Windows.Forms.ListBox lstFuncSemUsu;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtCodFunc;
+        private System.Windows.Forms.Label lblCodFunc;
     }
 }
