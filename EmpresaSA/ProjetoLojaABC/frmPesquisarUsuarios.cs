@@ -11,26 +11,12 @@ using MySql.Data.MySqlClient;
 
 namespace ProjetoLojaABC
 {
-    public partial class frmPesquisarFuncionarios : Form
+    public partial class frmPesquisarUsuarios : Form
     {
-
-        public frmPesquisarFuncionarios()
+        public frmPesquisarUsuarios()
         {
             InitializeComponent();
             desabilitarCampos();
-        }
-
-        private void btnPesquisar_Click(object sender, EventArgs e)
-        {
-
-            if (rdbCodigo.Checked)
-            {
-                pesquisaCodigo(Convert.ToInt32(txtDescricao.Text));
-            }
-            if (rdbNome.Checked)
-            {
-                pesquisaNome(txtDescricao.Text);
-            }
 
         }
         //pesquisar por codigo
@@ -58,7 +44,7 @@ namespace ProjetoLojaABC
         public void pesquisaNome(string nome)
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "select nome from tbFuncionarios where nome LIKE'%a%';";
+            comm.CommandText = "select usuario from tbUsuarios where usuario like '%" + nome + "%';";
             comm.CommandType = CommandType.Text;
 
             comm.Parameters.Clear();
@@ -111,7 +97,6 @@ namespace ProjetoLojaABC
         private void rdbCodigo_CheckedChanged(object sender, EventArgs e)
         {
             habilitarCampos();
-
         }
 
         private void rdbNome_CheckedChanged(object sender, EventArgs e)
@@ -122,6 +107,18 @@ namespace ProjetoLojaABC
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             limparCampos();
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            if (rdbCodigo.Checked)
+            {
+                pesquisaCodigo(Convert.ToInt32(txtDescricao.Text));
+            }
+            if (rdbNome.Checked)
+            {
+                pesquisaNome(txtDescricao.Text);
+            }
         }
 
         private void ltbPesquisar_SelectedIndexChanged(object sender, EventArgs e)
@@ -135,13 +132,10 @@ namespace ProjetoLojaABC
             else
             {
                 string nome = ltbPesquisar.SelectedItem.ToString();
-                frmFuncionarios abrir = new frmFuncionarios(nome);
+                frmCadastroUsuarios abrir = new frmCadastroUsuarios(nome);
                 abrir.Show();
                 this.Hide();
             }
-
-
-
         }
     }
 }

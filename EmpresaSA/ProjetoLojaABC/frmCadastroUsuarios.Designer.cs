@@ -45,12 +45,12 @@ namespace ProjetoLojaABC
             this.lblCodigo = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.gpbFuncionario = new System.Windows.Forms.GroupBox();
+            this.txtCodFunc = new System.Windows.Forms.TextBox();
+            this.lblCodFunc = new System.Windows.Forms.Label();
+            this.lstFuncSemUsu = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtRepSenha = new System.Windows.Forms.TextBox();
             this.lblRepSenha = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lstFuncSemUsu = new System.Windows.Forms.ListBox();
-            this.lblCodFunc = new System.Windows.Forms.Label();
-            this.txtCodFunc = new System.Windows.Forms.TextBox();
             this.pnlCrud.SuspendLayout();
             this.gpbFuncionario.SuspendLayout();
             this.SuspendLayout();
@@ -96,6 +96,7 @@ namespace ProjetoLojaABC
             this.btnLimpar.Text = "&Limpar";
             this.btnLimpar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLimpar.UseVisualStyleBackColor = false;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnPesquisar
             // 
@@ -135,6 +136,7 @@ namespace ProjetoLojaABC
             this.btnAlterar.Text = "&Alterar";
             this.btnAlterar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAlterar.UseVisualStyleBackColor = false;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnCadastrar
             // 
@@ -239,6 +241,42 @@ namespace ProjetoLojaABC
             this.gpbFuncionario.TabStop = false;
             this.gpbFuncionario.Text = "Dados";
             // 
+            // txtCodFunc
+            // 
+            this.txtCodFunc.Location = new System.Drawing.Point(572, 354);
+            this.txtCodFunc.MaxLength = 5;
+            this.txtCodFunc.Name = "txtCodFunc";
+            this.txtCodFunc.Size = new System.Drawing.Size(154, 24);
+            this.txtCodFunc.TabIndex = 14;
+            // 
+            // lblCodFunc
+            // 
+            this.lblCodFunc.AutoSize = true;
+            this.lblCodFunc.Location = new System.Drawing.Point(428, 357);
+            this.lblCodFunc.Name = "lblCodFunc";
+            this.lblCodFunc.Size = new System.Drawing.Size(138, 18);
+            this.lblCodFunc.TabIndex = 13;
+            this.lblCodFunc.Text = "Código Funcionário";
+            // 
+            // lstFuncSemUsu
+            // 
+            this.lstFuncSemUsu.FormattingEnabled = true;
+            this.lstFuncSemUsu.ItemHeight = 18;
+            this.lstFuncSemUsu.Location = new System.Drawing.Point(510, 77);
+            this.lstFuncSemUsu.Name = "lstFuncSemUsu";
+            this.lstFuncSemUsu.Size = new System.Drawing.Size(216, 238);
+            this.lstFuncSemUsu.TabIndex = 12;
+            this.lstFuncSemUsu.SelectedIndexChanged += new System.EventHandler(this.lstFuncSemUsu_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(517, 46);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(193, 18);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Funcionarios Sem Usuários";
+            // 
             // txtRepSenha
             // 
             this.txtRepSenha.Font = new System.Drawing.Font("Wingdings", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
@@ -257,42 +295,6 @@ namespace ProjetoLojaABC
             this.lblRepSenha.Size = new System.Drawing.Size(101, 18);
             this.lblRepSenha.TabIndex = 10;
             this.lblRepSenha.Text = "Repetir Senha";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(517, 46);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(193, 18);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Funcionarios Sem Usuários";
-            // 
-            // lstFuncSemUsu
-            // 
-            this.lstFuncSemUsu.FormattingEnabled = true;
-            this.lstFuncSemUsu.ItemHeight = 18;
-            this.lstFuncSemUsu.Location = new System.Drawing.Point(510, 77);
-            this.lstFuncSemUsu.Name = "lstFuncSemUsu";
-            this.lstFuncSemUsu.Size = new System.Drawing.Size(216, 238);
-            this.lstFuncSemUsu.TabIndex = 12;
-            this.lstFuncSemUsu.SelectedIndexChanged += new System.EventHandler(this.lstFuncSemUsu_SelectedIndexChanged);
-            // 
-            // lblCodFunc
-            // 
-            this.lblCodFunc.AutoSize = true;
-            this.lblCodFunc.Location = new System.Drawing.Point(428, 357);
-            this.lblCodFunc.Name = "lblCodFunc";
-            this.lblCodFunc.Size = new System.Drawing.Size(138, 18);
-            this.lblCodFunc.TabIndex = 13;
-            this.lblCodFunc.Text = "Código Funcionário";
-            // 
-            // txtCodFunc
-            // 
-            this.txtCodFunc.Location = new System.Drawing.Point(572, 354);
-            this.txtCodFunc.MaxLength = 5;
-            this.txtCodFunc.Name = "txtCodFunc";
-            this.txtCodFunc.Size = new System.Drawing.Size(154, 24);
-            this.txtCodFunc.TabIndex = 14;
             // 
             // frmCadastroUsuarios
             // 
