@@ -84,6 +84,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conexao.cs" />
     <Compile Include="frmAdministrador.cs">
       <SubType>Form</SubType>
     </Compile>

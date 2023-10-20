@@ -26,6 +26,7 @@ namespace LStreetwear
         public frmAdministrador()
         {
             InitializeComponent();
+            habilitarInicial();
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -46,5 +47,109 @@ namespace LStreetwear
             int MenuCount = GetMenuItemCount(hMenu) - 1;
             RemoveMenu(hMenu, MenuCount, MF_BYCOMMAND);
         }
+        public void habilitar()
+        {
+            btnAdicionar.Enabled = true;
+            btnAlterar.Enabled = true;
+            btnPesquisar.Enabled = true;
+            btnDeletar.Enabled = false;
+            txtCodProd.Enabled = false;
+            txtNomeProd.Enabled = true;
+            txtMarca.Enabled = true;
+            txtQuant.Enabled = true;
+            txtTamanho.Enabled = true;
+            txtPreco.Enabled = true;
+        }
+        public void habilitarInicial()
+        {
+            btnNovo.Enabled = true;
+            btnAdicionar.Enabled = false;
+            btnAlterar.Enabled = false;
+            btnPesquisar.Enabled = false;
+            btnDeletar.Enabled = false;
+            txtCodProd.Enabled = false;
+            txtNomeProd.Enabled = false;
+            txtMarca.Enabled = false;
+            txtQuant.Enabled = false;
+            txtTamanho.Enabled = false;
+            txtPreco.Enabled = false;
+        }
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            habilitar();
+            carregarCodigo();
+        }
+        public int adicionarProd()
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "insert into tbProdutos (nomeProd, marcaProd, quant, tamanho, dataRep, preco) values (@nomeProd, @marcaProd, @quant, @tamanho,@dataRep, @preco);";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@nomeProd", MySqlDbType.VarChar, 100).Value = txtNomeProd.Text;
+            comm.Parameters.Add("@marcaProd", MySqlDbType.VarChar, 100).Value = txtMarca.Text;
+            comm.Parameters.Add("@quant", MySqlDbType.Int32).Value = txtQuant.Text;
+            comm.Parameters.Add("@tamanho", MySqlDbType.VarChar, 2).Value = txtTamanho.Text;
+            comm.Parameters.Add("@dataRep", MySqlDbType.Date).Value = Convert.ToDateTime(dtpDataRep.Text);
+            comm.Parameters.Add("@preco", MySqlDbType.Decimal, 18).Value = txtPreco.Text;
+
+            comm.Connection = Conexao.conectar();
+            
+            int res = comm.ExecuteNonQuery();
+            
+
+            
+           
+            Conexao.desconectar();
+
+            return res;
+        }
+        public void limparCampos()
+        {
+            txtNomeProd.Clear();
+            txtMarca.Clear();
+            txtQuant.Clear();
+            txtTamanho.Clear();
+            txtPreco.Clear();
+        }
+        public void carregarCodigo()
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "select codProd+1 from tbProdutos order by codProd desc;";
+            comm.CommandType = CommandType.Text;
+            comm.Parameters.Clear();
+
+            comm.Connection = Conexao.conectar();
+            
+            MySqlDataReader DR;
+            DR = comm.ExecuteReader();
+            DR.Read();
+
+            txtCodProd.Text = Convert.ToString(DR.GetInt32(0));
+
+            Conexao.conectar();
+        }
+        private void btnAdicionar_Click(object sender, EventArgs e)
+        {
+            
+            if (txtNomeProd.Text.Equals("") || txtMarca.Text.Equals("") || txtQuant.Text.Equals("")
+                || txtTamanho.Text.Equals("") || txtPreco.Text.Equals(""))
+            {
+                MessageBox.Show("Preencha o campo que falta!", "Mensagem do Sistema",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                if (adicionarProd() == 1)
+                {
+                    MessageBox.Show("Cadastrado com Sucesso!!", "Mensagem do Sistema",
+                       MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+
+            limparCampos();
+        }
+
+        
     }
 }

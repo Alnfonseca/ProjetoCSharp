@@ -44,12 +44,13 @@ namespace LStreetwear
             this.txtNomeProd = new System.Windows.Forms.TextBox();
             this.dtpDataRep = new System.Windows.Forms.DateTimePicker();
             this.gpbCrud1 = new System.Windows.Forms.GroupBox();
-            this.btnAdicionar = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
+            this.btnAdicionar = new System.Windows.Forms.Button();
             this.gpbCrud2 = new System.Windows.Forms.GroupBox();
             this.btnDeletar = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
+            this.btnNovo = new System.Windows.Forms.Button();
             this.gpbCrud1.SuspendLayout();
             this.gpbCrud2.SuspendLayout();
             this.SuspendLayout();
@@ -130,7 +131,7 @@ namespace LStreetwear
             this.txtCodProd.Location = new System.Drawing.Point(262, 154);
             this.txtCodProd.MaxLength = 2;
             this.txtCodProd.Name = "txtCodProd";
-            this.txtCodProd.Size = new System.Drawing.Size(150, 20);
+            this.txtCodProd.Size = new System.Drawing.Size(87, 20);
             this.txtCodProd.TabIndex = 4;
             // 
             // txtTamanho
@@ -183,6 +184,7 @@ namespace LStreetwear
             // 
             // gpbCrud1
             // 
+            this.gpbCrud1.Controls.Add(this.btnNovo);
             this.gpbCrud1.Controls.Add(this.btnAlterar);
             this.gpbCrud1.Controls.Add(this.btnAdicionar);
             this.gpbCrud1.Location = new System.Drawing.Point(5, 101);
@@ -192,6 +194,15 @@ namespace LStreetwear
             this.gpbCrud1.TabStop = false;
             this.gpbCrud1.Text = "groupBox1";
             // 
+            // btnAlterar
+            // 
+            this.btnAlterar.Location = new System.Drawing.Point(5, 242);
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(105, 62);
+            this.btnAlterar.TabIndex = 3;
+            this.btnAlterar.Text = "Alterar";
+            this.btnAlterar.UseVisualStyleBackColor = true;
+            // 
             // btnAdicionar
             // 
             this.btnAdicionar.Location = new System.Drawing.Point(5, 52);
@@ -200,15 +211,7 @@ namespace LStreetwear
             this.btnAdicionar.TabIndex = 2;
             this.btnAdicionar.Text = "Adicionar";
             this.btnAdicionar.UseVisualStyleBackColor = true;
-            // 
-            // btnAlterar
-            // 
-            this.btnAlterar.Location = new System.Drawing.Point(5, 192);
-            this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(105, 62);
-            this.btnAlterar.TabIndex = 3;
-            this.btnAlterar.Text = "Alterar";
-            this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
             // gpbCrud2
             // 
@@ -248,6 +251,16 @@ namespace LStreetwear
             this.btnVoltar.Text = "&Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
+            // 
+            // btnNovo
+            // 
+            this.btnNovo.Location = new System.Drawing.Point(5, 146);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(105, 62);
+            this.btnNovo.TabIndex = 4;
+            this.btnNovo.Text = "Novo";
+            this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // frmAdministrador
             // 
@@ -305,5 +318,6 @@ namespace LStreetwear
         private System.Windows.Forms.Button btnDeletar;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Button btnVoltar;
+        private System.Windows.Forms.Button btnNovo;
     }
 }

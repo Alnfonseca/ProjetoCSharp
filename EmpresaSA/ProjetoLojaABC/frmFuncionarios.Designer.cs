@@ -31,6 +31,7 @@ namespace ProjetoLojaABC
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFuncionarios));
             this.gpbFuncionario = new System.Windows.Forms.GroupBox();
+            this.btnConectar = new System.Windows.Forms.Button();
             this.cbbEstado = new System.Windows.Forms.ComboBox();
             this.lblEstado = new System.Windows.Forms.Label();
             this.txtCidade = new System.Windows.Forms.TextBox();
@@ -61,7 +62,6 @@ namespace ProjetoLojaABC
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.btnConectar = new System.Windows.Forms.Button();
             this.gpbFuncionario.SuspendLayout();
             this.pnlCrud.SuspendLayout();
             this.SuspendLayout();
@@ -98,6 +98,15 @@ namespace ProjetoLojaABC
             this.gpbFuncionario.TabIndex = 0;
             this.gpbFuncionario.TabStop = false;
             this.gpbFuncionario.Text = "Dados";
+            // 
+            // btnConectar
+            // 
+            this.btnConectar.Location = new System.Drawing.Point(20, 309);
+            this.btnConectar.Name = "btnConectar";
+            this.btnConectar.Size = new System.Drawing.Size(153, 59);
+            this.btnConectar.TabIndex = 22;
+            this.btnConectar.Text = "Conectar";
+            this.btnConectar.UseVisualStyleBackColor = true;
             // 
             // cbbEstado
             // 
@@ -403,15 +412,6 @@ namespace ProjetoLojaABC
             this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
-            // 
-            // btnConectar
-            // 
-            this.btnConectar.Location = new System.Drawing.Point(20, 309);
-            this.btnConectar.Name = "btnConectar";
-            this.btnConectar.Size = new System.Drawing.Size(153, 59);
-            this.btnConectar.TabIndex = 22;
-            this.btnConectar.Text = "Conectar";
-            this.btnConectar.UseVisualStyleBackColor = true;
             // 
             // frmFuncionarios
             // 
