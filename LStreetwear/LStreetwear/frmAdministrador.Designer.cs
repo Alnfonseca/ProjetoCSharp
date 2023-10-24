@@ -44,13 +44,15 @@ namespace LStreetwear
             this.txtNomeProd = new System.Windows.Forms.TextBox();
             this.dtpDataRep = new System.Windows.Forms.DateTimePicker();
             this.gpbCrud1 = new System.Windows.Forms.GroupBox();
+            this.btnNovo = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.gpbCrud2 = new System.Windows.Forms.GroupBox();
             this.btnDeletar = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
-            this.btnNovo = new System.Windows.Forms.Button();
+            this.txtCodUsu = new System.Windows.Forms.TextBox();
+            this.lblCodUsu = new System.Windows.Forms.Label();
             this.gpbCrud1.SuspendLayout();
             this.gpbCrud2.SuspendLayout();
             this.SuspendLayout();
@@ -194,6 +196,16 @@ namespace LStreetwear
             this.gpbCrud1.TabStop = false;
             this.gpbCrud1.Text = "groupBox1";
             // 
+            // btnNovo
+            // 
+            this.btnNovo.Location = new System.Drawing.Point(5, 146);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(105, 62);
+            this.btnNovo.TabIndex = 4;
+            this.btnNovo.Text = "Novo";
+            this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            // 
             // btnAlterar
             // 
             this.btnAlterar.Location = new System.Drawing.Point(5, 242);
@@ -202,6 +214,7 @@ namespace LStreetwear
             this.btnAlterar.TabIndex = 3;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnAdicionar
             // 
@@ -241,6 +254,7 @@ namespace LStreetwear
             this.btnPesquisar.TabIndex = 12;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // btnVoltar
             // 
@@ -252,21 +266,32 @@ namespace LStreetwear
             this.btnVoltar.UseVisualStyleBackColor = true;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
-            // btnNovo
+            // txtCodUsu
             // 
-            this.btnNovo.Location = new System.Drawing.Point(5, 146);
-            this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(105, 62);
-            this.btnNovo.TabIndex = 4;
-            this.btnNovo.Text = "Novo";
-            this.btnNovo.UseVisualStyleBackColor = true;
-            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            this.txtCodUsu.Enabled = false;
+            this.txtCodUsu.Location = new System.Drawing.Point(262, 102);
+            this.txtCodUsu.MaxLength = 2;
+            this.txtCodUsu.Name = "txtCodUsu";
+            this.txtCodUsu.Size = new System.Drawing.Size(87, 20);
+            this.txtCodUsu.TabIndex = 16;
+            // 
+            // lblCodUsu
+            // 
+            this.lblCodUsu.AutoSize = true;
+            this.lblCodUsu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodUsu.Location = new System.Drawing.Point(127, 101);
+            this.lblCodUsu.Name = "lblCodUsu";
+            this.lblCodUsu.Size = new System.Drawing.Size(133, 18);
+            this.lblCodUsu.TabIndex = 15;
+            this.lblCodUsu.Text = "Código do Usuário";
             // 
             // frmAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 461);
+            this.Controls.Add(this.txtCodUsu);
+            this.Controls.Add(this.lblCodUsu);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.gpbCrud2);
             this.Controls.Add(this.gpbCrud1);
@@ -319,5 +344,7 @@ namespace LStreetwear
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.Button btnNovo;
+        private System.Windows.Forms.TextBox txtCodUsu;
+        private System.Windows.Forms.Label lblCodUsu;
     }
 }

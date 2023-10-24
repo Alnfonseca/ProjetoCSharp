@@ -26,7 +26,8 @@ namespace LStreetwear
         public frmAdministrador()
         {
             InitializeComponent();
-            habilitarInicial();
+            desabilitarInicial();
+            codigoUsuario();
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -36,11 +37,7 @@ namespace LStreetwear
             this.Hide();
         }
 
-        public void desabilitarCampos()
-        {
-
-        }
-
+        
         private void frmAdministrador_Load(object sender, EventArgs e)
         {
             IntPtr hMenu = GetSystemMenu(this.Handle, false);
@@ -60,7 +57,7 @@ namespace LStreetwear
             txtTamanho.Enabled = true;
             txtPreco.Enabled = true;
         }
-        public void habilitarInicial()
+        public void desabilitarInicial()
         {
             btnNovo.Enabled = true;
             btnAdicionar.Enabled = false;
@@ -79,19 +76,21 @@ namespace LStreetwear
             habilitar();
             carregarCodigo();
         }
-        public int adicionarProd()
+        public int adicionarProd(int codUsu)
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "insert into tbProdutos (nomeProd, marcaProd, quant, tamanho, dataRep, preco) values (@nomeProd, @marcaProd, @quant, @tamanho,@dataRep, @preco);";
+            comm.CommandText = "insert into tbProdutos(nomeProd, marcaProd, quant, tamanho, dataRep, preco, codUsu) values (@nomeProd, @marcaProd, @quant, @tamanho, @dataRep, @preco, @codUsu);";
             comm.CommandType = CommandType.Text;
 
             comm.Parameters.Clear();
+            comm.Parameters.Add("@codUsu", MySqlDbType.Int32, 11).Value = codUsu;
             comm.Parameters.Add("@nomeProd", MySqlDbType.VarChar, 100).Value = txtNomeProd.Text;
             comm.Parameters.Add("@marcaProd", MySqlDbType.VarChar, 100).Value = txtMarca.Text;
             comm.Parameters.Add("@quant", MySqlDbType.Int32).Value = txtQuant.Text;
             comm.Parameters.Add("@tamanho", MySqlDbType.VarChar, 2).Value = txtTamanho.Text;
             comm.Parameters.Add("@dataRep", MySqlDbType.Date).Value = Convert.ToDateTime(dtpDataRep.Text);
             comm.Parameters.Add("@preco", MySqlDbType.Decimal, 18).Value = txtPreco.Text;
+            
 
             comm.Connection = Conexao.conectar();
             
@@ -103,6 +102,23 @@ namespace LStreetwear
             Conexao.desconectar();
 
             return res;
+        }
+        public void codigoUsuario()
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "select codUsu from tbLogin;";
+            comm.CommandType = CommandType.Text;
+            comm.Parameters.Clear();
+
+            comm.Connection = Conexao.conectar();
+
+            MySqlDataReader DR;
+            DR = comm.ExecuteReader();
+            DR.Read();
+
+            txtCodUsu.Text = Convert.ToString(DR.GetInt32(0));
+
+            Conexao.desconectar();
         }
         public void limparCampos()
         {
@@ -129,6 +145,29 @@ namespace LStreetwear
 
             Conexao.conectar();
         }
+        public int alterarProduto(int codUsu)
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "update set nomeProd = @nomeProd, marcaProd = @marcaProd, quant = @quant, tamanho = @tamanho, dataRep = @dataRep, preco = @preco, codUsu = @codUsu where codUsu = @codUsu;";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@codUsu", MySqlDbType.Int32, 11).Value = codUsu;
+            comm.Parameters.Add("@nomeProd", MySqlDbType.VarChar, 100).Value = txtNomeProd.Text;
+            comm.Parameters.Add("@marcaProd", MySqlDbType.VarChar, 100).Value = txtMarca.Text;
+            comm.Parameters.Add("@quant", MySqlDbType.Int32).Value = txtQuant.Text;
+            comm.Parameters.Add("@tamanho", MySqlDbType.VarChar, 2).Value = txtTamanho.Text;
+            comm.Parameters.Add("@dataRep", MySqlDbType.Date).Value = Convert.ToDateTime(dtpDataRep.Text);
+            comm.Parameters.Add("@preco", MySqlDbType.Decimal, 18).Value = txtPreco.Text;
+            comm.Connection = Conexao.conectar();
+
+            int res = comm.ExecuteNonQuery();
+           
+            return res;
+
+            Conexao.desconectar();
+        }
+
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             
@@ -140,7 +179,7 @@ namespace LStreetwear
             }
             else
             {
-                if (adicionarProd() == 1)
+                if (adicionarProd(Convert.ToInt32(txtCodUsu.Text)) == 1)
                 {
                     MessageBox.Show("Cadastrado com Sucesso!!", "Mensagem do Sistema",
                        MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -150,6 +189,25 @@ namespace LStreetwear
             limparCampos();
         }
 
-        
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(txtCodUsu.Text) == 1)
+            {
+                MessageBox.Show("Produto alterado com Sucesso!!", "Mensagem do Sistema",
+                       MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Não Foi Possivel Alterar!!", "Mensagem do Sistema",
+                       MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            frmPesquisaProd abrir = new frmPesquisaProd();
+            abrir.Show();
+            this.Hide();
+        }
     }
 }

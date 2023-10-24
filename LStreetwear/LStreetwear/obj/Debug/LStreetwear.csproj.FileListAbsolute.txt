@@ -32,3 +32,4 @@ C:\Users\alan.fsantana1\Documents\Visual Studio 2019\ProjetoTI110\LStreetwear\LS
 C:\Users\alan.fsantana1\Documents\Visual Studio 2019\ProjetoTI110\LStreetwear\LStreetwear\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\alan.fsantana1\Documents\Visual Studio 2019\ProjetoTI110\LStreetwear\LStreetwear\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\alan.fsantana1\Documents\Visual Studio 2019\ProjetoTI110\LStreetwear\LStreetwear\obj\Debug\LStreetwear.csproj.CopyComplete
+C:\Users\alan.fsantana1\Documents\Visual Studio 2019\ProjetoTI110\LStreetwear\LStreetwear\obj\Debug\LStreetwear.frmPesquisaProd.resources
