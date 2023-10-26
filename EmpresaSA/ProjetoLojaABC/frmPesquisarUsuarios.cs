@@ -132,9 +132,9 @@ namespace ProjetoLojaABC
             else
             {
                 string nome = ltbPesquisar.SelectedItem.ToString();
-                frmCadastroUsuarios abrir = new frmCadastroUsuarios(nome);
-                abrir.Show();
-                this.Hide();
+                // frmCadastroUsuarios abrir = new frmCadastroUsuarios(nome);
+               // abrir.Show();
+               // this.Hide();
             }
         }
     }

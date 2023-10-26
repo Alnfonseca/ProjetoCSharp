@@ -38,3 +38,11 @@ C:\Users\alan.fsantana1\Documents\Visual Studio 2019\ProjetoTI110\EmpresaSA\Proj
 C:\Users\alan.fsantana1\Documents\Visual Studio 2019\ProjetoTI110\EmpresaSA\ProjetoLojaABC\obj\Debug\ProjetoLojaABC.csproj.CopyComplete
 C:\Users\alan.fsantana1\Documents\Visual Studio 2019\ProjetoTI110\EmpresaSA\ProjetoLojaABC\obj\Debug\ProjetoLojaABC.frmCadastroUsuarios.resources
 C:\Users\alan.fsantana1\Documents\Visual Studio 2019\ProjetoTI110\EmpresaSA\ProjetoLojaABC\obj\Debug\ProjetoLojaABC.frmPesquisarUsuarios.resources
+C:\Users\alan.fsantana1\Documents\Visual Studio 2019\ProjetoTI110\EmpresaSA\ProjetoLojaABC\obj\Debug\ProjetoLojaABC.frmWebCan.resources
+C:\Users\alan.fsantana1\Documents\Visual Studio 2019\ProjetoTI110\EmpresaSA\ProjetoLojaABC\bin\Debug\AForge.dll
+C:\Users\alan.fsantana1\Documents\Visual Studio 2019\ProjetoTI110\EmpresaSA\ProjetoLojaABC\bin\Debug\AForge.Video.DirectShow.dll
+C:\Users\alan.fsantana1\Documents\Visual Studio 2019\ProjetoTI110\EmpresaSA\ProjetoLojaABC\bin\Debug\AForge.Video.dll
+C:\Users\alan.fsantana1\Documents\Visual Studio 2019\ProjetoTI110\EmpresaSA\ProjetoLojaABC\bin\Debug\AForge.xml
+C:\Users\alan.fsantana1\Documents\Visual Studio 2019\ProjetoTI110\EmpresaSA\ProjetoLojaABC\bin\Debug\AForge.Video.xml
+C:\Users\alan.fsantana1\Documents\Visual Studio 2019\ProjetoTI110\EmpresaSA\ProjetoLojaABC\bin\Debug\AForge.Video.DirectShow.xml
+C:\Users\alan.fsantana1\Documents\Visual Studio 2019\ProjetoTI110\EmpresaSA\ProjetoLojaABC\obj\Debug\ProjetoLojaABC.Form1.resources
