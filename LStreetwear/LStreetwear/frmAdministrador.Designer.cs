@@ -311,7 +311,7 @@ namespace LStreetwear
             this.Controls.Add(this.lblCodProd);
             this.Name = "frmAdministrador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmAdministrador";
+            this.Text = "LStreetwear - Administrador";
             this.Load += new System.EventHandler(this.frmAdministrador_Load);
             this.gpbCrud1.ResumeLayout(false);
             this.gpbCrud2.ResumeLayout(false);

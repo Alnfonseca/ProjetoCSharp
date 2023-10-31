@@ -52,7 +52,6 @@ namespace LStreetwear
 
         private void btnSair_Click(object sender, EventArgs e)
         {
-            Application.Exit();
 
         }
 
@@ -61,6 +60,13 @@ namespace LStreetwear
             IntPtr hMenu = GetSystemMenu(this.Handle, false);
             int MenuCount = GetMenuItemCount(hMenu) - 1;
             RemoveMenu(hMenu, MenuCount, MF_BYCOMMAND);
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            frmMenu abrir = new frmMenu();
+            abrir.Show();
+            this.Hide();
         }
     }
 }

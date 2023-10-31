@@ -32,7 +32,7 @@ namespace LStreetwear
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            frmLogin abrir = new frmLogin();
+            frmMenu abrir = new frmMenu();
             abrir.Show();
             this.Hide();
         }

@@ -41,9 +41,7 @@ namespace LStreetwear
             ltbListProd.Enabled = false;
             btnPesquisar.Enabled = false;
             btnLimpar.Enabled = false;
-            rdbCodProd.Checked = false;
-            rdbMarcaProd.Checked = false;
-            rdbNomeProd.Checked = false;
+            
             //arrumar
         }
 
@@ -83,7 +81,7 @@ namespace LStreetwear
 
         private void rbdCodProd_CheckedChanged(object sender, EventArgs e)
         {
-            habilitar();
+            //habilitar();
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)

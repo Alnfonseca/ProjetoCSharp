@@ -1,5 +1,5 @@
 ﻿
-namespace ProjetoLojaABC
+namespace LStreetwear
 {
     partial class frmFuncionarios
     {
@@ -30,8 +30,6 @@ namespace ProjetoLojaABC
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFuncionarios));
-            this.gpbFuncionario = new System.Windows.Forms.GroupBox();
-            this.btnConectar = new System.Windows.Forms.Button();
             this.cbbEstado = new System.Windows.Forms.ComboBox();
             this.lblEstado = new System.Windows.Forms.Label();
             this.txtCidade = new System.Windows.Forms.TextBox();
@@ -54,6 +52,7 @@ namespace ProjetoLojaABC
             this.lblNome = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
+            this.gpbFuncionario = new System.Windows.Forms.GroupBox();
             this.pnlCrud = new System.Windows.Forms.Panel();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
@@ -65,48 +64,6 @@ namespace ProjetoLojaABC
             this.gpbFuncionario.SuspendLayout();
             this.pnlCrud.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // gpbFuncionario
-            // 
-            this.gpbFuncionario.Controls.Add(this.btnConectar);
-            this.gpbFuncionario.Controls.Add(this.cbbEstado);
-            this.gpbFuncionario.Controls.Add(this.lblEstado);
-            this.gpbFuncionario.Controls.Add(this.txtCidade);
-            this.gpbFuncionario.Controls.Add(this.lblCidade);
-            this.gpbFuncionario.Controls.Add(this.txtBairro);
-            this.gpbFuncionario.Controls.Add(this.lblBairro);
-            this.gpbFuncionario.Controls.Add(this.txtNumero);
-            this.gpbFuncionario.Controls.Add(this.lblNumero);
-            this.gpbFuncionario.Controls.Add(this.mskCEP);
-            this.gpbFuncionario.Controls.Add(this.lblCEP);
-            this.gpbFuncionario.Controls.Add(this.txtEndereco);
-            this.gpbFuncionario.Controls.Add(this.lblEndereco);
-            this.gpbFuncionario.Controls.Add(this.txtEmail);
-            this.gpbFuncionario.Controls.Add(this.lblEmail);
-            this.gpbFuncionario.Controls.Add(this.dtpDNasc);
-            this.gpbFuncionario.Controls.Add(this.lblDNasc);
-            this.gpbFuncionario.Controls.Add(this.mskCPF);
-            this.gpbFuncionario.Controls.Add(this.lblCPF);
-            this.gpbFuncionario.Controls.Add(this.txtNome);
-            this.gpbFuncionario.Controls.Add(this.lblNome);
-            this.gpbFuncionario.Controls.Add(this.txtCodigo);
-            this.gpbFuncionario.Controls.Add(this.lblCodigo);
-            this.gpbFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpbFuncionario.Location = new System.Drawing.Point(12, 12);
-            this.gpbFuncionario.Name = "gpbFuncionario";
-            this.gpbFuncionario.Size = new System.Drawing.Size(756, 394);
-            this.gpbFuncionario.TabIndex = 0;
-            this.gpbFuncionario.TabStop = false;
-            this.gpbFuncionario.Text = "Dados";
-            // 
-            // btnConectar
-            // 
-            this.btnConectar.Location = new System.Drawing.Point(20, 309);
-            this.btnConectar.Name = "btnConectar";
-            this.btnConectar.Size = new System.Drawing.Size(153, 59);
-            this.btnConectar.TabIndex = 22;
-            this.btnConectar.Text = "Conectar";
-            this.btnConectar.UseVisualStyleBackColor = true;
             // 
             // cbbEstado
             // 
@@ -187,7 +144,6 @@ namespace ProjetoLojaABC
             this.mskCEP.Name = "mskCEP";
             this.mskCEP.Size = new System.Drawing.Size(81, 24);
             this.mskCEP.TabIndex = 7;
-            this.mskCEP.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mskCEP_KeyDown);
             // 
             // lblCEP
             // 
@@ -235,7 +191,7 @@ namespace ProjetoLojaABC
             // dtpDNasc
             // 
             this.dtpDNasc.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDNasc.Location = new System.Drawing.Point(166, 132);
+            this.dtpDNasc.Location = new System.Drawing.Point(166, 135);
             this.dtpDNasc.Name = "dtpDNasc";
             this.dtpDNasc.Size = new System.Drawing.Size(96, 24);
             this.dtpDNasc.TabIndex = 4;
@@ -300,27 +256,58 @@ namespace ProjetoLojaABC
             this.lblCodigo.TabIndex = 0;
             this.lblCodigo.Text = "Código";
             // 
+            // gpbFuncionario
+            // 
+            this.gpbFuncionario.Controls.Add(this.cbbEstado);
+            this.gpbFuncionario.Controls.Add(this.lblEstado);
+            this.gpbFuncionario.Controls.Add(this.txtCidade);
+            this.gpbFuncionario.Controls.Add(this.lblCidade);
+            this.gpbFuncionario.Controls.Add(this.txtBairro);
+            this.gpbFuncionario.Controls.Add(this.lblBairro);
+            this.gpbFuncionario.Controls.Add(this.txtNumero);
+            this.gpbFuncionario.Controls.Add(this.lblNumero);
+            this.gpbFuncionario.Controls.Add(this.mskCEP);
+            this.gpbFuncionario.Controls.Add(this.lblCEP);
+            this.gpbFuncionario.Controls.Add(this.txtEndereco);
+            this.gpbFuncionario.Controls.Add(this.lblEndereco);
+            this.gpbFuncionario.Controls.Add(this.txtEmail);
+            this.gpbFuncionario.Controls.Add(this.lblEmail);
+            this.gpbFuncionario.Controls.Add(this.dtpDNasc);
+            this.gpbFuncionario.Controls.Add(this.lblDNasc);
+            this.gpbFuncionario.Controls.Add(this.mskCPF);
+            this.gpbFuncionario.Controls.Add(this.lblCPF);
+            this.gpbFuncionario.Controls.Add(this.txtNome);
+            this.gpbFuncionario.Controls.Add(this.lblNome);
+            this.gpbFuncionario.Controls.Add(this.txtCodigo);
+            this.gpbFuncionario.Controls.Add(this.lblCodigo);
+            this.gpbFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gpbFuncionario.Location = new System.Drawing.Point(12, 12);
+            this.gpbFuncionario.Name = "gpbFuncionario";
+            this.gpbFuncionario.Size = new System.Drawing.Size(756, 307);
+            this.gpbFuncionario.TabIndex = 1;
+            this.gpbFuncionario.TabStop = false;
+            this.gpbFuncionario.Text = "Dados";
+            // 
             // pnlCrud
             // 
             this.pnlCrud.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.pnlCrud.Controls.Add(this.btnVoltar);
             this.pnlCrud.Controls.Add(this.btnLimpar);
             this.pnlCrud.Controls.Add(this.btnPesquisar);
             this.pnlCrud.Controls.Add(this.btnExcluir);
             this.pnlCrud.Controls.Add(this.btnAlterar);
             this.pnlCrud.Controls.Add(this.btnCadastrar);
             this.pnlCrud.Controls.Add(this.btnNovo);
-            this.pnlCrud.Location = new System.Drawing.Point(0, 497);
+            this.pnlCrud.Location = new System.Drawing.Point(236, 410);
             this.pnlCrud.Name = "pnlCrud";
-            this.pnlCrud.Size = new System.Drawing.Size(784, 59);
-            this.pnlCrud.TabIndex = 12;
+            this.pnlCrud.Size = new System.Drawing.Size(334, 105);
+            this.pnlCrud.TabIndex = 13;
             // 
             // btnVoltar
             // 
             this.btnVoltar.BackColor = System.Drawing.Color.Transparent;
             this.btnVoltar.Image = ((System.Drawing.Image)(resources.GetObject("btnVoltar.Image")));
             this.btnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnVoltar.Location = new System.Drawing.Point(669, 7);
+            this.btnVoltar.Location = new System.Drawing.Point(682, 342);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(105, 41);
             this.btnVoltar.TabIndex = 19;
@@ -334,70 +321,65 @@ namespace ProjetoLojaABC
             this.btnLimpar.BackColor = System.Drawing.Color.Transparent;
             this.btnLimpar.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpar.Image")));
             this.btnLimpar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLimpar.Location = new System.Drawing.Point(558, 7);
+            this.btnLimpar.Location = new System.Drawing.Point(226, 54);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(105, 41);
             this.btnLimpar.TabIndex = 18;
             this.btnLimpar.Text = "&Limpar";
             this.btnLimpar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLimpar.UseVisualStyleBackColor = false;
-            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnPesquisar
             // 
             this.btnPesquisar.BackColor = System.Drawing.Color.Transparent;
             this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
             this.btnPesquisar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnPesquisar.Location = new System.Drawing.Point(447, 7);
+            this.btnPesquisar.Location = new System.Drawing.Point(225, 7);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(105, 41);
             this.btnPesquisar.TabIndex = 17;
             this.btnPesquisar.Text = "&Pesquisar";
             this.btnPesquisar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPesquisar.UseVisualStyleBackColor = false;
-            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // btnExcluir
             // 
             this.btnExcluir.BackColor = System.Drawing.Color.Transparent;
             this.btnExcluir.Image = ((System.Drawing.Image)(resources.GetObject("btnExcluir.Image")));
             this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnExcluir.Location = new System.Drawing.Point(336, 7);
+            this.btnExcluir.Location = new System.Drawing.Point(114, 54);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(105, 41);
             this.btnExcluir.TabIndex = 16;
             this.btnExcluir.Text = "&Excluir";
             this.btnExcluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExcluir.UseVisualStyleBackColor = false;
-            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnAlterar
             // 
             this.btnAlterar.BackColor = System.Drawing.Color.Transparent;
             this.btnAlterar.Image = ((System.Drawing.Image)(resources.GetObject("btnAlterar.Image")));
             this.btnAlterar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAlterar.Location = new System.Drawing.Point(225, 7);
+            this.btnAlterar.Location = new System.Drawing.Point(114, 7);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(105, 41);
             this.btnAlterar.TabIndex = 15;
             this.btnAlterar.Text = "&Alterar";
             this.btnAlterar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAlterar.UseVisualStyleBackColor = false;
-            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnCadastrar
             // 
             this.btnCadastrar.BackColor = System.Drawing.Color.Transparent;
             this.btnCadastrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastrar.Image")));
             this.btnCadastrar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCadastrar.Location = new System.Drawing.Point(114, 7);
+            this.btnCadastrar.Location = new System.Drawing.Point(3, 54);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(105, 41);
             this.btnCadastrar.TabIndex = 14;
             this.btnCadastrar.Text = "&Cadastrar";
             this.btnCadastrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCadastrar.UseVisualStyleBackColor = false;
-            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // btnNovo
             // 
@@ -411,22 +393,17 @@ namespace ProjetoLojaABC
             this.btnNovo.Text = "&Novo";
             this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNovo.UseVisualStyleBackColor = false;
-            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // frmFuncionarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(780, 557);
+            this.ClientSize = new System.Drawing.Size(811, 527);
+            this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.pnlCrud);
             this.Controls.Add(this.gpbFuncionario);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
             this.Name = "frmFuncionarios";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Loja - Funcionarios";
-            this.Load += new System.EventHandler(this.frmFuncionarios_Load);
+            this.Text = "frmFuncionarios";
             this.gpbFuncionario.ResumeLayout(false);
             this.gpbFuncionario.PerformLayout();
             this.pnlCrud.ResumeLayout(false);
@@ -436,7 +413,20 @@ namespace ProjetoLojaABC
 
         #endregion
 
-        private System.Windows.Forms.GroupBox gpbFuncionario;
+        private System.Windows.Forms.ComboBox cbbEstado;
+        private System.Windows.Forms.Label lblEstado;
+        private System.Windows.Forms.TextBox txtCidade;
+        private System.Windows.Forms.Label lblCidade;
+        private System.Windows.Forms.TextBox txtBairro;
+        private System.Windows.Forms.Label lblBairro;
+        private System.Windows.Forms.TextBox txtNumero;
+        private System.Windows.Forms.Label lblNumero;
+        private System.Windows.Forms.MaskedTextBox mskCEP;
+        private System.Windows.Forms.Label lblCEP;
+        private System.Windows.Forms.TextBox txtEndereco;
+        private System.Windows.Forms.Label lblEndereco;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.DateTimePicker dtpDNasc;
         private System.Windows.Forms.Label lblDNasc;
         private System.Windows.Forms.MaskedTextBox mskCPF;
@@ -445,28 +435,14 @@ namespace ProjetoLojaABC
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label lblCodigo;
-        private System.Windows.Forms.TextBox txtEndereco;
-        private System.Windows.Forms.Label lblEndereco;
-        private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.Label lblBairro;
-        private System.Windows.Forms.TextBox txtNumero;
-        private System.Windows.Forms.Label lblNumero;
-        private System.Windows.Forms.MaskedTextBox mskCEP;
-        private System.Windows.Forms.Label lblCEP;
-        private System.Windows.Forms.Label lblEstado;
-        private System.Windows.Forms.TextBox txtCidade;
-        private System.Windows.Forms.Label lblCidade;
-        private System.Windows.Forms.TextBox txtBairro;
-        private System.Windows.Forms.ComboBox cbbEstado;
+        private System.Windows.Forms.GroupBox gpbFuncionario;
         private System.Windows.Forms.Panel pnlCrud;
-        private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Button btnNovo;
-        private System.Windows.Forms.Button btnConectar;
+        private System.Windows.Forms.Button btnVoltar;
     }
 }
