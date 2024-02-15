@@ -1,0 +1,11 @@
+C:\Users\alan.fsantana1\source\repos\Datagreadview\Datagreadview\bin\Debug\Datagreadview.exe.config
+C:\Users\alan.fsantana1\source\repos\Datagreadview\Datagreadview\bin\Debug\Datagreadview.exe
+C:\Users\alan.fsantana1\source\repos\Datagreadview\Datagreadview\bin\Debug\Datagreadview.pdb
+C:\Users\alan.fsantana1\source\repos\Datagreadview\Datagreadview\obj\Debug\Datagridview.csproj.AssemblyReference.cache
+C:\Users\alan.fsantana1\source\repos\Datagreadview\Datagreadview\obj\Debug\Datagreadview.Form1.resources
+C:\Users\alan.fsantana1\source\repos\Datagreadview\Datagreadview\obj\Debug\Datagreadview.Properties.Resources.resources
+C:\Users\alan.fsantana1\source\repos\Datagreadview\Datagreadview\obj\Debug\Datagridview.csproj.GenerateResource.cache
+C:\Users\alan.fsantana1\source\repos\Datagreadview\Datagreadview\obj\Debug\Datagridview.csproj.CoreCompileInputs.cache
+C:\Users\alan.fsantana1\source\repos\Datagreadview\Datagreadview\obj\Debug\Datagreadview.exe
+C:\Users\alan.fsantana1\source\repos\Datagreadview\Datagreadview\obj\Debug\Datagreadview.pdb
+C:\Users\alan.fsantana1\source\repos\Datagreadview\Datagreadview\obj\Debug\Datagreadview.Form2.resources
